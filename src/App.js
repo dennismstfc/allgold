@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import VerkaufsstelleEroeffnen from './components/VerkaufsstelleEroeffnen';
+import VerkaufsstellenAuflisten from './components/VerkaufsstellenAuflisten';
+import Verkaufsstellenposition from './components/Verkaufsstellenposition';
+import VerkaufstelleSuchen from './components/VerkaufstelleSuchen';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+         <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/verkaufsstelle-eroeffnen" component={VerkaufsstelleEroeffnen} />
+          <Route path="/verkaufsstellen-auflisten" component={VerkaufsstellenAuflisten} />
+          <Route path='/verkaufsstellenposition' component={Verkaufsstellenposition} />
+          <Route path='/verkaufsteile-suchen' component={VerkaufstelleSuchen} />
+         </Switch>
+      </div>
+    </Router>
   );
 }
 

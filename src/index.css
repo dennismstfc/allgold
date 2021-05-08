@@ -1,13 +1,71 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Robot", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.logo{
+  max-width: 7vw;
+}
+
+.main{
+  max-width: 80%;
+  margin: auto;
+  background: rgb(250, 250, 250);
+  height: 100vh;
+}
+
+.page-wrapper {
+  margin: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.home-headline{
+  display: flex;
+  justify-content: center;
+  font-size: 6vw;
+  margin: 10px;
+}
+
+.home-subheadline{
+  display: flex;
+  justify-content: center;
+  font-size: 4vw;
+}
+
+.box{
+  margin: 10px;
+  border-radius: 5px;
+  width: 90%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.box p {
+  margin: 5px;
+  color: black;
+}
+
+.preview-image{
+  max-height: 150px;
+  margin: 10px;
+}
+
+.map-container{
+  height: 5vh;
+  width: 80%;
 }
