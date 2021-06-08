@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import VerkaufsstelleEroeffnen from './components/VerkaufsstelleEroeffnen';
 import VerkaufsstellenAuflisten from './components/VerkaufsstellenAuflisten';
-import Verkaufsstellenposition from './components/Verkaufsstellenposition';
+import Verkaufsstellenposition from './components/Produktverwaltung';
 import VerkaufstelleSuchen from './components/VerkaufstelleSuchen';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/verkaufsstelle-eroeffnen" component={VerkaufsstelleEroeffnen} />
           <Route path="/verkaufsstellen-auflisten" component={VerkaufsstellenAuflisten} />
-          <Route path='/verkaufsstellenposition' component={Verkaufsstellenposition} />
+          <Route path='/produktverwaltung' component={Verkaufsstellenposition} />
           <Route path='/verkaufsteile-suchen' component={VerkaufstelleSuchen} />
          </Switch>
       </div>

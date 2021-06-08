@@ -1,22 +1,23 @@
 import {useEffect, useState} from 'react';
-import Videos from './Videos';
+import Stations from './Stations';
 
 const VerkaufsstellenAuflisten = () => {
-    const [video, setVideo]= useState([])
+    const [stations, setStations]= useState([]);
     
     useEffect(() => {
-        fetch("/video/3").then(response =>
+        fetch("/stations").then(response =>
           response.json().then(data => {
-            setVideo(data);
+            setStations(data.stations);
           })
         );
       }, []);
 
-    return (
-        <div>
-          <Videos videos={video}/>
-        </div>
 
+    return (
+        <div className="main">
+          <p className="home-headline">Verkaustellen auflisten</p>
+          <Stations stations={stations} />
+        </div>
       );
 }
  

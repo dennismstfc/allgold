@@ -27,8 +27,8 @@ const Home = () => {
                 
                 <div className="row">
                     <div className="column">
-                        <Link to='/verkaufsstellenposition'>
-                            <Block title="Verkaufstellenpostion"/> 
+                        <Link to='/produktverwaltung'>
+                            <Block title="Produktverwaltung"/> 
                         </Link>
                     </div>
                     
