@@ -9,13 +9,6 @@ const StationForm = ({ onNewStation }) => {
     const [type, setType] = useState("");
     const [description, setDescription] = useState("");
 
-    const options = [
-        {key: 'a', text: 'Automat', value: 'automat' },
-        {key: 'a+v', text: 'Automat + Verkaufsstelle', value: 'automat+verkaufsstelle' },
-        {key: 'v', text: 'Verkaufsstelle', value: 'verkaufsstelle' },
-    ]
-
-
     return ( 
        <Form>
            <Form.Field>
@@ -76,7 +69,7 @@ const StationForm = ({ onNewStation }) => {
                         });
 
                         if (response.ok){
-                            console.log("respone worked!");
+                            console.log("response worked!");
                             onNewStation(station);
                             setLocation("");
                             setLongitude("");

@@ -3,8 +3,10 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import VerkaufsstelleEroeffnen from './components/VerkaufsstelleEroeffnen';
 import VerkaufsstellenAuflisten from './components/VerkaufsstellenAuflisten';
-import Verkaufsstellenposition from './components/Produktverwaltung';
-import VerkaufstelleSuchen from './components/VerkaufstelleSuchen';
+import VerkaufsstelleBearbeiten from './components/VerkaufsstelleBearbeiten';
+import Produktverwaltung from './components/Produktverwaltung';
+import Bilanz from './components/Bilanz';
+
 
 function App() {
   return (
@@ -15,8 +17,9 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/verkaufsstelle-eroeffnen" component={VerkaufsstelleEroeffnen} />
           <Route path="/verkaufsstellen-auflisten" component={VerkaufsstellenAuflisten} />
-          <Route path='/produktverwaltung' component={Verkaufsstellenposition} />
-          <Route path='/verkaufsteile-suchen' component={VerkaufstelleSuchen} />
+          <Route path="/verkaufsstelle-bearbeiten" component={VerkaufsstelleBearbeiten} />
+          <Route path='/produktverwaltung' component={Produktverwaltung} />
+          <Route path='/bilanz' component={Bilanz} />
          </Switch>
       </div>
     </Router>

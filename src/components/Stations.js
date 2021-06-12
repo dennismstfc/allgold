@@ -1,21 +1,33 @@
-import { List, Header } from "semantic-ui-react";
+import { Icon, Table, Button } from "semantic-ui-react";
+import { Link } from 'react-router-dom';
 
-const Stations = ({stations}) => {
-    return ( 
-        <List>
-            {stations.map(station => {
-                return(
-                    <List.Item key={station.id}>
-                        <Header>{station.location}</Header>
-                        <List.Content>Longitude: {station.longitude} </List.Content>
-                        <List.Content>Latitude: {station.latitude}</List.Content>
-                        <List.Content>Typ: {station.type}</List.Content>
-                        <List.Content>Beschreibung: {station.description}</List.Content>
-                    </List.Item>
-                );
-    	    })}
-        </List>
-     );
+const Stations = ({station, deleteStation, x}) => {
+
+    return(
+        <Table.Row>
+            <Table.Cell>{station.location}</Table.Cell>
+            <Table.Cell>{station.longitude} </Table.Cell>
+            <Table.Cell>{station.latitude}</Table.Cell>
+            <Table.Cell>{station.type}</Table.Cell>
+            <Table.Cell>{station.description}</Table.Cell>
+            <Table.Cell>
+            <Button.Group>
+                <Button icon onClick={() => deleteStation(x)}>
+                    <Icon name='delete' color='red'/>
+                </Button>
+                <Link to='/verkaufsstelle-bearbeiten'>
+                    <Button icon>
+                        <Icon name='settings' color='black'/>
+                    </Button>   
+                </Link>
+            </Button.Group>
+            </Table.Cell>
+        </Table.Row>
+    );
 }
- 
+
 export default Stations;
+
+
+
+
