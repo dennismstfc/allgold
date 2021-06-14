@@ -10,7 +10,6 @@ const VerkaufsstelleBearbeiten = () => {
         fetch("/stations/"+station_id).then(response =>
             response.json().then(data => {
                 setStation(data.stations[0]);
-                console.log(data.stations[0]);
             })
         );
     }, []);

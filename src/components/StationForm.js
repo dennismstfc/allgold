@@ -8,18 +8,29 @@ const StationForm = ({ onNewStation }) => {
     const [latitude, setLatitude] = useState("");
     const [type, setType] = useState("");
     const [description, setDescription] = useState("");
+    const [seller_id, setSellerID] = useState("");
 
     return ( 
        <Form>
-           <Form.Field>
-               <Form.Input
-                fluid
-                label='Standort'
-                placeholder="Standort"
-                value={location}
-                onChange={e => setLocation(e.target.value)}
-                />
-           </Form.Field>
+           <Form.Group>
+                <Form.Input
+                    fluid
+                    label='Standort'
+                    placeholder="Standort"
+                    value={location}
+                    onChange={e => setLocation(e.target.value)}
+                    width={14}
+                    />
+                <Form.Input
+                    fluid
+                    label='Seller ID' 
+                    placeholder='Seller ID' 
+                    value={seller_id}
+                    onChange={e => setSellerID(e.target.value)}
+                    width={2}
+                    />
+           </Form.Group>
+           
            
            <Form.Group widths='equal'>
                 <Form.Input
@@ -59,7 +70,7 @@ const StationForm = ({ onNewStation }) => {
                 <Form.Field>
                     <Button
                     onClick={async () => {
-                        const station = {location, longitude, latitude, type, description};
+                        const station = {location, longitude, latitude, type, description, seller_id};
                         const response = await fetch("/add_station", {
                             method: "POST",
                             headers: {
@@ -72,6 +83,7 @@ const StationForm = ({ onNewStation }) => {
                             console.log("response worked!");
                             onNewStation(station);
                             setLocation("");
+                            setSellerID("");
                             setLongitude("");
                             setType("");
                             setLatitude("");

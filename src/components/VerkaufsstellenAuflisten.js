@@ -26,7 +26,7 @@ const VerkaufsstellenAuflisten = () => {
 
     return (
         <div className="main">
-          <p className="home-headline">Verkaustellen auflisten</p>
+          <p className="home-headline">Verkaufsstellen auflisten</p>
           <Table color='black'>
             <Table.Header>
               <Table.Row>
