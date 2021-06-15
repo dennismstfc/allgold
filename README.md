@@ -2,7 +2,7 @@
 
 Fullstack Programmierprojekt im Sommersemester 2021. 
 
-# Verwendeter Webstack
+# Verwendeter Stack
 
 react.js/flask/sqlalchemy
 
