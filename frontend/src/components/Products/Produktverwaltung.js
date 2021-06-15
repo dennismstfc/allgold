@@ -19,7 +19,7 @@ const Produktverwaltung = () => {
             <p className="home-subheadline">Neues Produkt anlegen</p>
             <ProductForm 
                 onNewProduct={product =>
-                setProducts(currentProducts => [product, ...currentProducts])
+                    setProducts(currentProducts => [product, ...currentProducts])
                 }
             />
             <Products products={products}/>
