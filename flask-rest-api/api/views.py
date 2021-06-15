@@ -32,7 +32,7 @@ def update_station(id):
 
     if station_to_update is None:
         return 'Cannot find station with that ID', 405
-    
+ 
     station_to_update.location = station_data['location']
     station_to_update.longitude = station_data['longitude']
     station_to_update.latitude = station_data['latitude']
@@ -319,9 +319,10 @@ def top_sellers():
     filtered_sellers =[]
     
     for item in product_with_sales:
-        filtered_sellers.append({'name': Seller.query.filter_by(seller_id=item.Sale.seller_id).first().first_name + " " + Seller.query.filter_by(seller_id=item.Sale.seller_id).first().last_name, 'amount': round(item.Sale.amount_sold * item.Product.price, 2)})
+        filtered_sellers.append({'name': Seller.query.filter_by(seller_id=item.Sale.seller_id).first().first_name + " " + Seller.query.filter_by(seller_id=item.Sale.seller_id).first().last_name,
+                                 'amount': round(item.Sale.amount_sold * item.Product.price, 2)})
     
-    return jsonify({'filtered_seller': filtered_sellers})
+    return jsonify({'sellers': filtered_sellers})
 
 @main.route('/sellers/<int:id>', methods=['GET'])
 def get_single_seller(id):

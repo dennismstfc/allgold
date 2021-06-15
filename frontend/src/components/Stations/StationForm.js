@@ -66,9 +66,9 @@ const StationForm = ({ onNewStation }) => {
                 onChange={e => setDescription(e.target.value)}
                 />
 
-            <Link to='/verkaufsstellen-auflisten'>
-                <Form.Field>
-                    <Button
+            <Form.Field>
+                <Button>
+                        <Link to='/verkaufsstellen-auflisten'
                     onClick={async () => {
                         const station = {location, longitude, latitude, type, description, seller_id};
                         const response = await fetch("/add_station", {
@@ -90,9 +90,12 @@ const StationForm = ({ onNewStation }) => {
                             setDescription("");
                         }
                     }}
-                    >Submit</Button>
-                </Form.Field>
-            </Link>
+                    >
+                        Submit
+                    </Link>
+                </Button>
+            </Form.Field>
+          
        </Form> 
      );
 }

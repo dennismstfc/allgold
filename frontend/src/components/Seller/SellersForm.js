@@ -42,6 +42,8 @@ const VerkaueferForm = ({onNewSeller}) => {
 						setFirstName("");
 						setLastName("");
 					}
+					
+        				window.location.reload(false);
 				}}
 				>Submit</Button>
 			</Form.Field>

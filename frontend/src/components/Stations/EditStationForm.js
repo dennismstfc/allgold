@@ -8,20 +8,31 @@ const EditStationForm = ({ stationToBeEdited }) => {
     const [latitude, setLatitude] = useState(stationToBeEdited.latitude);
     const [type, setType] = useState(stationToBeEdited.type);
     const [description, setDescription] = useState(stationToBeEdited.description);
+    const [seller_id, setSellerID] = useState(stationToBeEdited.seller_id);
 
 
     return ( 
        <Form>
-           <Form.Field>
+           <Form.Group>
                <Form.Input
-                fluid
-                label='Standort'
-                placeholder="Standort"
-                value={location}
-                onChange={e => setLocation(e.target.value)}
+                    fluid
+                    label='Standort'
+                    placeholder="Standort"
+                    value={location}
+                    onChange={e => setLocation(e.target.value)}
+                    width={14}
                 />
-           </Form.Field>
-           
+
+                <Form.Input
+                    fluid
+                    label='Seller ID'
+                    placeholder='Seller ID'
+                    valule={seller_id}
+                    onChange={e => setSellerID(e.target.value)}
+                    width={2}
+                />
+           </Form.Group>
+          
            <Form.Group widths='equal'>
                 <Form.Input
                     fluid
@@ -56,11 +67,11 @@ const EditStationForm = ({ stationToBeEdited }) => {
                 onChange={e => setDescription(e.target.value)}
                 />
 
-            <Link to='/verkaufsstellen-auflisten'>
-                <Form.Field>
-                    <Button
+            <Form.Field>
+                <Button>
+                    <Link to='/verkaufsstellen-auflisten'
                     onClick={async () => {
-                        const station = {location, longitude, latitude, type, description};
+                        const station = {location, longitude, latitude, type, description, seller_id};
                         const response = await fetch("/stations/"+stationToBeEdited.station_id, {
                             method: "PUT",
                             headers: {
@@ -76,11 +87,15 @@ const EditStationForm = ({ stationToBeEdited }) => {
                             setType("");
                             setLatitude("");
                             setDescription("");
+                            setSellerID("");
+
                         }
                     }}
-                    >Update</Button>
-                </Form.Field>
-            </Link>
+                    >
+                        Update
+                    </Link>
+                </Button>
+            </Form.Field>
        </Form> 
      );
 }
