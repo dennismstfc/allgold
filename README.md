@@ -1,4 +1,4 @@
-# Internettechnologien Projekt Allgold
+# Internettechnologien Projekt
 
 Fullstack Programmierprojekt im Sommersemester 2021. 
 

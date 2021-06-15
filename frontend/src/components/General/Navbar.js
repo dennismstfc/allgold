@@ -1,4 +1,4 @@
-import logo from '../icons/allgold-logo.png'
+import logo from '../../icons/allgold-logo.png'
 import {Link} from 'react-router-dom';
 
 const Navbar = () => {

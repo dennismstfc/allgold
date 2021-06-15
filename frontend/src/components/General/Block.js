@@ -1,5 +1,5 @@
-import test from '../images/placeholder.png'
-import arrowIcon from '../icons/arrow.svg'
+import test from '../../images/placeholder.png'
+import arrowIcon from '../../icons/arrow.svg'
 
 const Block = (props) => {
     return ( 

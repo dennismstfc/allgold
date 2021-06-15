@@ -45,7 +45,9 @@ const Home = () => {
                         </Link>
                     </div>
                     <div className="column">
-                        <Block title="Verkaufstelle schließen"/>
+                        <Link to='/verkaeuferverwaltung'>
+                            <Block title="Verkäuferverwaltung"/>
+                        </Link>
                     </div>
                  
                 </div>
