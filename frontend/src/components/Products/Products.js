@@ -9,6 +9,7 @@ const Products = ({products}) => {
                     'Accept': 'application/json'            
                     }
         })
+        window.location.reload(false);
     };
 
     return ( 
