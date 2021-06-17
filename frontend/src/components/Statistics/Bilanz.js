@@ -1,5 +1,6 @@
 import LastSales from './LastSales';
 import TopSellers from './TopSellers';
+import TopSellersDoughnutChart from './TopSellersDoughnutChart';
 
 const Bilanz = () => {
     return (
@@ -11,6 +12,7 @@ const Bilanz = () => {
             <br/>
             <br/>
             <TopSellers/>
+            <TopSellersDoughnutChart /> 
         </div>
      );
 }

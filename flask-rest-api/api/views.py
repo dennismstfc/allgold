@@ -153,10 +153,12 @@ def add_sale():
 
     station = Station.query.filter_by(station_id=sale_data['station_id']).first()
     if not station:
+        print("Cannot find station with that ID")
         return 'Cannot find station with that ID', 404
     
     product = Product.query.filter_by(product_id=sale_data['product_id']).first()
     if not product:
+        print("Cannot find product with that ID")
         return 'Cannot find product with that ID', 404
     
     inventory = Inventory.query.filter_by(station_id=sale_data['station_id'], product_id=sale_data['product_id']).first()
@@ -164,6 +166,7 @@ def add_sale():
     if inventory:
         amount_of_available_products = inventory.current_amount
         if amount_of_available_products < 0:
+            print("Inventory is, empty cannot progress to a sale")
             return 'Inventory is empty, cannot progress to a sale', 405
         else:
             new_amount = int(amount_of_available_products) - int(sale_data['amount_sold'])
@@ -174,21 +177,25 @@ def add_sale():
                     pending_refill.amount= 30-int(new_amount)
                     db.session.commit()
                 else:
+                    print("New refill incoming")
                     new_refill = Refill(station_id=sale_data['station_id'], product_id=sale_data['product_id'], amount= 30 - int(new_amount))
                     db.session.add(new_refill)
                     db.session.commit()
 
             if new_amount < 0:
+                print("Not enough products available to make the pending sale")
                 return 'Not enough products available to make the pending sale', 405
             else:
                 inventory.current_amount = new_amount
                 seller = Station.query.filter_by(station_id=sale_data['station_id']).first().seller_id
-                new_sale = Sale(station_id=sale_data['station_id'], product_id=sale_data['station_id'], seller_id=seller, amount_sold=sale_data['amount_sold'])
+                new_sale = Sale(station_id=sale_data['station_id'], product_id=sale_data['product_id'], seller_id=seller, amount_sold=sale_data['amount_sold'])
                 db.session.add(new_sale)
                 db.session.commit()
-                return 'Items successfull purchased!', 200
+                print("Items sucessfully purchased")
+                return 'Items successfully purchased!', 200
 
     else:
+        print("Cannot find product")
         return 'Cannot find that product', 405
 
 
@@ -319,8 +326,7 @@ def top_sellers():
     filtered_sellers =[]
     
     for item in product_with_sales:
-        filtered_sellers.append({'name': Seller.query.filter_by(seller_id=item.Sale.seller_id).first().first_name + " " + Seller.query.filter_by(seller_id=item.Sale.seller_id).first().last_name,
-                                 'amount': round(item.Sale.amount_sold * item.Product.price, 2)})
+        filtered_sellers.append({'name': Seller.query.filter_by(seller_id=item.Sale.seller_id).first().first_name + " " + Seller.query.filter_by(seller_id=item.Sale.seller_id).first().last_name,'amount': round(item.Sale.amount_sold * item.Product.price, 2)})
     
     return jsonify({'sellers': filtered_sellers})
 

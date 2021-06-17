@@ -69,3 +69,8 @@
   height: 5vh;
   width: 80%;
 }
+
+.container-table{
+  height: 30vh;
+  overflow-y: scroll;
+}

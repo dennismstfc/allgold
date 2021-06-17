@@ -13,7 +13,9 @@ const TopSellers = () => {
 	return (
 		<div>
 			<p className="home-subheadline">Besten Verkäufer</p>
-			<Sellers sellers={sellers} />
+			<div className="container-table">
+				<Sellers sellers={sellers} />
+			</div>
 		</div>
 	);
 }

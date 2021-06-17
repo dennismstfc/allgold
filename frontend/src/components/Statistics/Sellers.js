@@ -1,5 +1,4 @@
 import {Table} from 'semantic-ui-react';
-import Sales from './Sales';
 
 const Sellers = ({sellers}) => {
 	return ( 

@@ -15,8 +15,10 @@ const LastSales = () => {
 	return ( 
 		<div>
 			<p className="home-subheadline">Letzten 50 Verkäufe</p>
-			<Sales sales={sales} />
-		</div>		
+			<div className="container-table">
+				<Sales sales={sales} />
+			</div>		
+		</div>
 	 );
 
 }
