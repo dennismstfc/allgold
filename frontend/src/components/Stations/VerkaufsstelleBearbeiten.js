@@ -3,7 +3,7 @@ import EditStationForm from './EditStationForm';
 
 const VerkaufsstelleBearbeiten = () => {
       
-    const station_id = 1;
+    var station_id = prompt("Gebe Station ID ein!")
     const [station, setStation] = useState([]);
 
     useEffect(() => {

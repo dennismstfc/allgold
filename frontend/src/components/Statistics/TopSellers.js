@@ -10,15 +10,17 @@ const TopSellers = () => {
 				setSellers(data.sellers)
 			}));
 	}, []);
-
-
 	
-		
+	sellers.sort(function(a, b){
+		return parseFloat(b.amount) - parseFloat(a.amount)
+	})
+
+
 	return (
 		<div>
-			<p className="home-subheadline">Besten Verkäufer</p>
+			<p className="home-subheadline">Besten 20 Verkäufer</p>
 			<div className="container-table">
-				<Sellers sellers={sellers} />
+				<Sellers sellers={sellers.slice(0, 20)} />
 			</div>
 		</div>
 	);

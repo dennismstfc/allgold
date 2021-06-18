@@ -15,7 +15,7 @@ const VerkaufsstellenAuflisten = () => {
       }, []);
 
     function deleteStation(stationID){
-        alert(stationID)
+        alert("Station "+stationID+" wird gelöscht")
         fetch('/stations/'+stationID,{
             method: 'DELETE',
             header:{'Content-Type': 'application/json',
