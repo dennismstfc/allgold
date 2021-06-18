@@ -1,6 +1,6 @@
 import LastSales from './LastSales';
 import TopSellers from './TopSellers';
-import TopSellersDoughnutChart from './TopSellersDoughnutChart';
+import SellerBarChart from './SellerBarChart';
 
 const Bilanz = () => {
     return (
@@ -10,9 +10,9 @@ const Bilanz = () => {
             <br/>
             <br/>
             <br/>
-            <br/>
             <TopSellers/>
-            <TopSellersDoughnutChart /> 
+            <br />
+            <SellerBarChart/> 
         </div>
      );
 }

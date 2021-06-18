@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {Bar} from 'react-chartjs-2';
 
-const TopSellersDoughnutChart = () => {
+const SellerBarChart = () => {
 
 	const [chartData, setChartData] = useState({});
 
@@ -14,30 +14,30 @@ const TopSellersDoughnutChart = () => {
 			response.json().then(data => {
 				for(const dataObj of data.sellers){
 					selName.push(dataObj.name)					
-					selAmount.push(dataObj.amount)					
+					selAmount.push(dataObj.amount)				
 				}
 
+				setChartData ({
+					labels: selName,
+					datasets: [
+						{ 
+							label: 'Verkäufererträge',
+							data: selAmount,
+							backgroundColor: [
+								'rgb(255, 99, 132)',
+							
+							],
+							borderColor: [
+								'rgba(255, 99, 132, 1)',
+							      ],
+							borderWidth: 4
+						}
+					]
+					})
 			})
 		});
 			
-		setChartData ({
-			labels: selName,
-			datasets: [
-				{ 
-					label: 'Top 5 sellers',
-					data: selAmount,
-					backgroundColor: [
-						'rgb(255, 99, 132)',
-					
-					],
-					borderColor: [
-              				  'rgba(255, 99, 132, 1)',
-              				],
-					borderWidth: 4
-				}
-			]
-			})
-			console.log(selName, selAmount);
+		
 	}
 
 	useEffect(() => {
@@ -46,7 +46,7 @@ const TopSellersDoughnutChart = () => {
 
 	return ( 
 		<div>
-			<p className="home-subheadline">Top 5 Verkäufer</p>
+			<p className="home-subheadline">Top Verkäufer</p>
 			  <Bar
 				data={chartData}
 				options={{
@@ -79,4 +79,4 @@ const TopSellersDoughnutChart = () => {
 	 );
 }
  
-export default TopSellersDoughnutChart;
+export default SellerBarChart;
