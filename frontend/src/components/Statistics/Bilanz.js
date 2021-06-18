@@ -1,6 +1,7 @@
 import LastSales from './LastSales';
 import TopSellers from './TopSellers';
 import SellerBarChart from './SellerBarChart';
+import StationBarChart from './StationBarChart';
 
 const Bilanz = () => {
     return (
@@ -12,7 +13,9 @@ const Bilanz = () => {
             <br/>
             <TopSellers/>
             <br />
-            <SellerBarChart/> 
+            <SellerBarChart/>
+            <br />
+            <StationBarChart />
         </div>
      );
 }

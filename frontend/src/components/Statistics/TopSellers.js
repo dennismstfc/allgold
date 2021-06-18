@@ -10,6 +10,10 @@ const TopSellers = () => {
 				setSellers(data.sellers)
 			}));
 	}, []);
+
+
+	
+		
 	return (
 		<div>
 			<p className="home-subheadline">Besten Verkäufer</p>

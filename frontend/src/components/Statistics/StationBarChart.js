@@ -2,28 +2,31 @@ import { useEffect, useState } from 'react';
 import {Bar} from 'react-chartjs-2';
 import 'chartjs-plugin-zoom';
 
-const SellerBarChart = () => {
+
+const StationBarChart = () => {
 
 	const [chartData, setChartData] = useState({});
 
 	const chart = () => {	
 		
-		let selName = [];
-		let selAmount = []; 
+		let staLocation = [];
+		let staAmount = []; 
 
-		fetch("/sellers/top_sellers").then(response => {
+		fetch("/stations/top_stations").then(response => {
 			response.json().then(data => {
-				for(const dataObj of data.sellers){
-					selName.push(dataObj.name)					
-					selAmount.push(dataObj.amount)				
+				for(const dataObj of data.stations){
+					staLocation.push(dataObj.location)					
+					staAmount.push(dataObj.amount)				
 				}
 
+				console.log(data.stations)
+
 				setChartData ({
-					labels: selName,
+					labels: staLocation,
 					datasets: [
 						{ 
-							label: 'Verkäuferertrag',
-							data: selAmount,
+							label: 'Stationertrag',
+							data: staAmount,
 							backgroundColor: [
 								'rgb(255, 99, 132)',
 							
@@ -45,14 +48,16 @@ const SellerBarChart = () => {
 		chart();
 	}, []);
 
+
+
 	return ( 
 		<div>
-			<p className="home-subheadline">Alle Verkäufer im Vergleich</p>
+			<p className="home-subheadline">Alle Stationen im Vergleich</p>
 			  <Bar
 				data={chartData}
 				options={{
 				responsive: true,
-				title: { text: "Alle Verkäufer im Vergleich", display: true },
+				title: { text: "Alle Stationen im Vergleich", display: true },
 				scales: {
 				yAxes: [
 					{
@@ -85,7 +90,10 @@ const SellerBarChart = () => {
 				}}
 			/>
 		</div>
+
+
 	 );
+
 }
  
-export default SellerBarChart;
+export default StationBarChart;
