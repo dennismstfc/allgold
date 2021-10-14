@@ -1,8 +1,3 @@
-# ITT Project 
-
-Fullstack project.
-
-# Used stack
+**Used stack:**
 
 react.js/flask/sqlalchemy
-
