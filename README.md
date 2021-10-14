@@ -1,9 +1,8 @@
-# Internettechnologien Projekt
+# ITT Project 
 
-Fullstack Programmierprojekt im Sommersemester 2021. 
-Entwickelt wurde eine Verwaltungswebsite für eine fiktive Firma.
+Fullstack project.
 
-# Verwendeter Stack
+# Used stack
 
 react.js/flask/sqlalchemy
 
