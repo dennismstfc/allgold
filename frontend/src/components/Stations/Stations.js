@@ -15,11 +15,6 @@ const Stations = ({station, deleteStation, x}) => {
                 <Button icon onClick={() => deleteStation(x)}>
                     <Icon name='delete' color='red'/>
                 </Button>
-                <Link to='/verkaufsstelle-bearbeiten'>
-                    <Button icon>
-                        <Icon name='settings' color='black'/>
-                    </Button>   
-                </Link>
             </Button.Group>
             </Table.Cell>
         </Table.Row>

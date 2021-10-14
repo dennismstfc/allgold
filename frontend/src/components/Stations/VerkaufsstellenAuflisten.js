@@ -3,8 +3,11 @@ import Stations from './Stations';
 import {Table, Input} from 'semantic-ui-react';
 
 const VerkaufsstellenAuflisten = () => {
+
+    // Zu beginn initialisiere ich als State ein leeres Array 
     const [stations, setStations]= useState([]);
-    
+   
+    // Daten werden werden durch fetch angefragt durch setStations in ein Array gepackt
     useEffect(() => {
         fetch("/stations").then(response =>
           response.json().then(data => {
@@ -48,7 +51,7 @@ const VerkaufsstellenAuflisten = () => {
             </Table.Header>
             <Table.Body>
               {stations.filter((station) => {
-                if (searchTerm == ""){
+                if (searchTerm === ""){
                   return station;
                 }
                 else if (station.location.toLowerCase().includes(searchTerm.toLowerCase())){
